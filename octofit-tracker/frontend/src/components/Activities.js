@@ -4,7 +4,6 @@ function Activities() {
   const [activities, setActivities] = useState([]);
 
   useEffect(() => {
-    // fetch('https://cautious-funicular-r5pqpx9746fpj7x-8000.app.github.dev/api/activities/')
     fetch('http://localhost:8000/api/activities/')
       .then(response => response.json())
       .then(data => setActivities(data))
@@ -12,13 +11,26 @@ function Activities() {
   }, []);
 
   return (
-    <div>
-      <h1>Activities</h1>
-      <ul>
-        {activities.map(activity => (
-          <li key={activity.id}>{activity.name} - {activity.description}</li>
-        ))}
-      </ul>
+    <div className="card">
+      <div className="card-body">
+        <h1 className="card-title">Activities</h1>
+        <table className="table table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            {activities.map(activity => (
+              <tr key={activity.id}>
+                <td>{activity.name}</td>
+                <td>{activity.description}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
