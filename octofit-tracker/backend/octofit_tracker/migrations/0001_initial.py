@@ -43,8 +43,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('duration', models.IntegerField()),
-                ('activity', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='tracker.activity')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='tracker.user')),
+                ('activity', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='octofit_tracker.activity')),
+                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='octofit_tracker.user')),
             ],
         ),
         migrations.CreateModel(
@@ -52,7 +52,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('score', models.IntegerField()),
-                ('team', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='tracker.team')),
+                ('team', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='octofit_tracker.team')),
             ],
         ),
     ]
